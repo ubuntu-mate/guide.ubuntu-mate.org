@@ -263,15 +263,15 @@ tr:first-child, tr:nth-child(2n+3) {
     color: #45a7e7;
 }
 
-/* Embed font */
+/* Embed Ubuntu font if not present on system */
 @font-face {
     font-family: "Ubuntu-Embed";
-    src: url("/fonts/Ubuntu-R.ttf");
+    src: url("/assets/fonts/Ubuntu-R.ttf");
 }
 
 @font-face {
     font-family: "Ubuntu-Embed";
-    src: url("/fonts/Ubuntu-B.ttf");
+    src: url("/assets/fonts/Ubuntu-B.ttf");
     font-weight: bold;
     font-style: normal;
 }
