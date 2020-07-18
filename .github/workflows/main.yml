@@ -17,7 +17,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt-get install pandoc
+        sudo apt-get install pandoc ruby-htmlproofer
 
     - name: Clone Guide Repository
       run: |
@@ -26,6 +26,10 @@ jobs:
     - name: Build
       run: |
         scripts/build.py ubuntu-mate-guide
+
+    - name: Test for errors
+      run: |
+        scripts/test.sh
 
     - name: Deploy to server
       if: ${{ github.event_name == 'push' && github.repository == 'ubuntu-mate/guide.ubuntu-mate.org' }}
