@@ -101,6 +101,7 @@ os.remove("processed.docbook")
 print("Copying assets...")
 shutil.copytree(os.path.join(guide_path, "apps"), "apps/")
 shutil.copytree(os.path.join(guide_path, "figures"), "figures/")
+shutil.copytree(os.path.join("../src/assets/"), "assets/")
 
 # Clean up
 # Load pieces and append them to index.html
