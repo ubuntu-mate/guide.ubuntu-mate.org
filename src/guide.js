@@ -58,5 +58,15 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementById("nav-" + href).click();
     }
 
+    // Some headings are linked in articles. Make sure they don't have the
+    // class in the articles.
+    let chapter_links = document.querySelectorAll(".nav-chapter");
+    for (c = 0; c < chapter_links.length; c++) {
+        let link = chapter_links[c];
+        if (link.parentElement.tagName.toLowerCase() == "p") {
+            link.classList.remove("nav-chapter");
+        }
+    }
+
     document.getElementById("guide-viewer").classList.remove("loading");
 });
