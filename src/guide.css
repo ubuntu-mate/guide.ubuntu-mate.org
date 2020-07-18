@@ -26,6 +26,13 @@ body {
 #guide-viewer {
     display: flex;
     flex-direction: columm;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+/* Hidden at first as it will fade in when ready */
+#guide-viewer.loading {
+    cursor: wait;
+    opacity: 0;
 }
 
 /************************************

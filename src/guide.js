@@ -57,4 +57,6 @@ window.addEventListener("DOMContentLoaded", () => {
         let href = window.location.href.split("#")[1];
         document.getElementById("nav-" + href).click();
     }
+
+    document.getElementById("guide-viewer").classList.remove("loading");
 });
