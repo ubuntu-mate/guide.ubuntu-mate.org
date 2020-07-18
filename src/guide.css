@@ -7,11 +7,14 @@ html {
 
 body {
     margin: auto;
-    font-family: Ubuntu, Roboto, sans-serif;
     padding: 0;
     margin: 0;
     line-height: 22px;
     overflow-x: hidden;
+}
+
+* {
+    font-family: "Ubuntu", "Ubuntu-Embed", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 }
 
 #guide-content {
@@ -225,4 +228,17 @@ tr:first-child, tr:nth-child(2n+3) {
 /* Mark external links */
 .external {
     color: #45a7e7;
+}
+
+/* Embed font */
+@font-face {
+    font-family: "Ubuntu-Embed";
+    src: url("/fonts/Ubuntu-R.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu-Embed";
+    src: url("/fonts/Ubuntu-B.ttf");
+    font-weight: bold;
+    font-style: normal;
 }
