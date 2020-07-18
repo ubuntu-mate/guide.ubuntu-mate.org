@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 buffer += "<div class='nav-separator'></div>";
             }
 
-            buffer += `<a id="nav-${heading.id}" class="nav-item ${is_new_chapter ? 'nav-chapter' : ''} ${h == 0 ? 'active' : ''}" href="#${heading.id}">${text}</a>`;
+            buffer += `<a id="nav-${heading.id}" class="nav-item ${is_new_chapter ? 'nav-chapter' : ''} ${h == 1 ? 'active' : ''}" href="#${heading.id}">${text}</a>`;
 
             if (is_new_chapter === true) {
                 heading.innerText = heading.innerText.replaceAll('•', ' ').toLowerCase().replace("mate", "MATE");
