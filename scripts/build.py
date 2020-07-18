@@ -155,6 +155,14 @@ for line in index:
     if line.find('<a href="http') != -1:
         line = line.replace('<a href="http', '<a class="external" rel="external" href="http')
 
+    # Dots in classes/IDs are not standard.
+    if line.find("page.") != -1:
+        line = line.replace("page.", "page-")
+
+    # Alter sidebar header for the ••• chapters.
+    if line.find('•') != -1:
+        line = line.replace('<a', '<a class="nav-chapter"')
+
     new_index.append(line)
 
     # After opening the body - add content

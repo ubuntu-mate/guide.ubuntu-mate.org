@@ -16,7 +16,7 @@ body {
 
 #guide-content {
     padding: 15px;
-    max-width: 940px;
+    max-width: calc(100vw - 300px);
     margin: auto;
 }
 
@@ -32,8 +32,7 @@ body {
     position: sticky;
     top: 66px;
     align-self: start;
-    min-width: 250px;
-    max-width: 300px;
+    width: 300px;
 }
 
 #sidebar-contents {
@@ -44,34 +43,41 @@ body {
     overflow-y: scroll;
 }
 
-#sidebar-contents a {
+.nav-item {
     cursor: pointer;
     display: block;
     padding: 5px 10px;
-    border-bottom: 1px solid #a9a9a9;
+    border-bottom: 1px solid #d7d7d7;
     font-size: 15px;
     text-decoration: none;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
-#sidebar-contents a:hover,
-#sidebar-contents a:focus {
+.nav-chapter {
+    border-color: #a9a9a9;
+    color: black;
+    text-transform: capitalize;
+}
+
+.nav-separator {
+    height: 15px;
+}
+
+.nav-item:hover,
+.nav-item:focus {
     background: #cedbb9;
     color: #000;
     text-decoration: none;
 }
 
-#sidebar-contents a:active {
+.nav-item:active {
     background: #abc087;
     color: #000;
     outline-color: #abc087;
     transition: none;
 }
 
-#sidebar-contents a {
-    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
-}
-
-#sidebar-contents .active {
+.nav-item.active {
     background-color: #93af66;
     color: #fff;
 }
@@ -79,6 +85,10 @@ body {
 #sidebar-info {
     padding: 15px;
     opacity: 0.5;
+}
+
+#nav-page-faq {
+    text-transform: uppercase;
 }
 
 /************************************
@@ -116,12 +126,13 @@ body {
 /* Match styling from Docbook render */
 h1, h2 {
     color: #4b4b49;
+    line-height: 36px;
+    text-transform: capitalize;
 
     /* Jump to (hash) */
     margin-top: -60px;
     padding-top: 80px;
     margin-bottom: 20px;
-    line-height: 36px;
 }
 
 h2 {
