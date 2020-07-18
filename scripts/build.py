@@ -131,7 +131,7 @@ tmp_found_duplicate_logo = False
 for line in index:
     # Make HTML5 compliant
     if line.strip().startswith("<html"):
-        line = "<html>"
+        line = "<html lang='en'>"
 
     # Before closing the head
     if line.strip().startswith("</head>"):
