@@ -191,6 +191,7 @@ pre {
     display: block;
     background-color: #ededed;
     color: #000;
+    font-family: "Ubuntu Mono", "Roboto Mono", monospace;
     font-size: 14px;
     padding: 15px;
     margin: 15px 0;
