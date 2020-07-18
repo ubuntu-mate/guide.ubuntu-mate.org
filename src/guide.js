@@ -51,4 +51,10 @@ window.addEventListener("DOMContentLoaded", () => {
     window.onscroll = refresh_sidebar;
     ready = true;
     refresh_sidebar();
+
+    // If returning to the page and a hash is in the URL, jump!
+    if (window.location.href.search("#") != -1) {
+        let href = window.location.href.split("#")[1];
+        document.getElementById("nav-" + href).click();
+    }
 });
