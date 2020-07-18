@@ -88,7 +88,7 @@ body {
 }
 
 .nav-item.active {
-    background-color: #93af66;
+    background-color: #87a556;
     color: #fff;
 }
 
@@ -274,4 +274,59 @@ tr:first-child, tr:nth-child(2n+3) {
     src: url("/fonts/Ubuntu-B.ttf");
     font-weight: bold;
     font-style: normal;
+}
+
+/************************************
+  Dark mode
+************************************/
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #222222;
+        color: #fff;
+    }
+
+    #title-block-header,
+    blockquote,
+    pre {
+        background: #4e4c46;
+        border-color: #000;
+        color: #fff;
+    }
+
+    .menuchoice {
+        color: #9b9b9b;
+    }
+
+    h1, h2 {
+        color: #9b9b9b;
+    }
+
+    a:not(.external) {
+        color: #9ab270;
+    }
+
+    .nav-chapter {
+        color: #fff !important;
+    }
+
+    .nav-chapter:hover,
+    .nav-chapter:focus {
+        color: #000 !important;
+    }
+
+    .site-nav {
+        color: #fff !important;
+    }
+
+    tr, td, th {
+        background-color: transparent;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #404040;
+    }
+
+    tr:nth-child(even) {
+        background-color: #2f2f2f;
+    }
 }
