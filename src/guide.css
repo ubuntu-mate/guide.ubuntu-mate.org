@@ -85,7 +85,7 @@ body {
     color: #fff;
 }
 
-#sidebar-info {
+.sidebar-info {
     padding: 15px;
     opacity: 0.5;
 }

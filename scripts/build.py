@@ -144,7 +144,7 @@ for line in index:
 
     # Banner
     if line.strip() == "<p>Ubuntu MATE banner logo.</p>":
-        line = "<img src='figures/ubuntu-mate.png' style='width:300px;max-width:100%'/>"
+        line = "<img src='figures/ubuntu-mate.png' alt='Ubuntu MATE Logo' style='width:300px;max-width:100%'/>"
 
         # As it's an all-in-one page, prevent duplicate logos from appearing.
         if not tmp_found_duplicate_logo:
