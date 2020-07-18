@@ -17,7 +17,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt-get install pandoc ruby-htmlproofer
+        sudo apt-get install pandoc ruby-html-proofer
 
     - name: Clone Guide Repository
       run: |
