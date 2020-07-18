@@ -112,6 +112,9 @@ with open("../src/head.html", "r") as f:
 with open("../src/guide.css", "r") as f:
     css = f.readlines()
 
+with open("../src/guide.js", "r") as f:
+    js = f.readlines()
+
 with open("../src/body-start.html", "r") as f:
     body_start = f.readlines()
 
@@ -137,6 +140,7 @@ for line in index:
     # Before closing the body - add JS
     if line.strip().startswith("</body>"):
         new_index.append(" ".join(body_end))
+        new_index.append("<script>" + " ".join(js) + "</script>")
 
     # Banner
     if line.strip() == "<p>Ubuntu MATE banner logo.</p>":

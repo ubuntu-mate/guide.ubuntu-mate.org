@@ -1,18 +1,84 @@
 /************************************
   Base
 ************************************/
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: auto;
     font-family: Ubuntu, Roboto, sans-serif;
     padding: 0;
     margin: 0;
     line-height: 22px;
+    overflow-x: hidden;
 }
 
 #guide-content {
     padding: 15px;
     max-width: 940px;
     margin: auto;
+}
+
+#guide-viewer {
+    display: flex;
+    flex-direction: columm;
+}
+
+/************************************
+  Sidebar
+************************************/
+#guide-sidebar {
+    position: sticky;
+    top: 66px;
+    align-self: start;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+#sidebar-contents {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 66px);
+    overflow-y: scroll;
+}
+
+#sidebar-contents a {
+    cursor: pointer;
+    display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid #a9a9a9;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#sidebar-contents a:hover,
+#sidebar-contents a:focus {
+    background: #cedbb9;
+    color: #000;
+    text-decoration: none;
+}
+
+#sidebar-contents a:active {
+    background: #abc087;
+    color: #000;
+    outline-color: #abc087;
+    transition: none;
+}
+
+#sidebar-contents a {
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+#sidebar-contents .active {
+    background-color: #93af66;
+    color: #fff;
+}
+
+#sidebar-info {
+    padding: 15px;
+    opacity: 0.5;
 }
 
 /************************************
@@ -25,6 +91,7 @@ body {
     width: 100%;
     height: 50px;
     padding: 0.5em 0;
+    z-index: 10;
 }
 
 #site-logo {
@@ -54,6 +121,7 @@ h1, h2 {
     margin-top: -60px;
     padding-top: 80px;
     margin-bottom: 20px;
+    line-height: 36px;
 }
 
 h2 {
@@ -91,8 +159,15 @@ pre {
 p > img,
 p > embed {
     display: block;
-    max-width: 800px;
+    max-width: 680px;
     margin: 10px auto;
+}
+
+@media and (max-width: 680px) {
+    p > img,
+    p > embed {
+        max-width: 100%;
+    }
 }
 
 /* Images underneath headings are icons */
