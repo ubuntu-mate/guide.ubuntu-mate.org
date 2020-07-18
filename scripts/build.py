@@ -122,6 +122,7 @@ with open("index.html", "r") as f:
     index = f.readlines()
 
 new_index = []
+tmp_found_duplicate_logo = False
 
 for line in index:
     # Make HTML5 compliant
@@ -136,6 +137,19 @@ for line in index:
     # Before closing the body - add JS
     if line.strip().startswith("</body>"):
         new_index.append(" ".join(body_end))
+
+    # Banner
+    if line.strip() == "<p>Ubuntu MATE banner logo.</p>":
+        line = "<img src='figures/ubuntu-mate.png' style='width:300px;max-width:100%'/>"
+
+        # As it's an all-in-one page, prevent duplicate logos from appearing.
+        if not tmp_found_duplicate_logo:
+            tmp_found_duplicate_logo = True
+            continue
+
+    # Update "rel" attribute for duplicate tags
+    if line.find('<a href="http') != -1:
+        line = line.replace('<a href="http', '<a class="external" rel="external" href="http')
 
     new_index.append(line)
 

@@ -1,3 +1,6 @@
+/************************************
+  Base
+************************************/
 body {
     margin: auto;
     font-family: Ubuntu, Roboto, sans-serif;
@@ -6,6 +9,15 @@ body {
     line-height: 22px;
 }
 
+#guide-content {
+    padding: 15px;
+    max-width: 940px;
+    margin: auto;
+}
+
+/************************************
+  Site Header
+************************************/
 #site-header {
     background: #87a556;
     position: sticky;
@@ -15,6 +27,116 @@ body {
     padding: 0.5em 0;
 }
 
-#guide-content {
+#site-logo {
+    margin: 0 15px;
+}
+
+/************************************
+  Guide
+************************************/
+#title-block-header {
+    background: #f4f4f4;
+    margin: -15px;
+    margin-bottom: 15px;
     padding: 15px;
+}
+
+#title-block-header .author,
+#title-block-header .date {
+    opacity: 0.5;
+}
+
+/* Match styling from Docbook render */
+h1, h2 {
+    color: #4b4b49;
+
+    /* Jump to (hash) */
+    margin-top: -60px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 1px solid #c0bfbc;
+    color: #4b4b49;
+    font-size: 30px;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+
+blockquote {
+    /* Used for notes and tips, missing icon! */
+    background: #f4f4f4;
+    border: 1px solid #eaeae9;
+    margin: 10px auto;
+    padding: 5px 10px;
+}
+
+pre {
+    display: block;
+    background-color: #ededed;
+    color: #000;
+    font-size: 14px;
+    padding: 15px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+}
+
+.menuchoice {
+    color: #4b4b49;
+    font-style: italic;
+}
+
+/* Figure images */
+p > img,
+p > embed {
+    display: block;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+/* Images underneath headings are icons */
+h1 + p > img,
+h2 + p > img {
+    display: inline-block;
+    max-height: 48px;
+    margin: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+/* Navigation links (from main site) */
+a {
+    color: #758a53;
+}
+
+/* Tables (from main site) */
+table {
+    table-layout: fixed;
+    margin: 0;
+    margin-bottom: 0px;
+    margin-bottom: 50px;
+}
+
+th, td {
+    border-spacing: 0;
+    border-collapse: collapse;
+    padding: 8px;
+    max-width: 400px;
+}
+
+tr {
+    font-size: 0.9em;
+    border-bottom: 1px solid #c9c6c3;
+    background-color: #fff;
+}
+
+tr:first-child, tr:nth-child(2n+3) {
+    background-color: #f9f9f9;
+}
+
+/* Mark external links */
+.external {
+    color: #45a7e7;
 }
