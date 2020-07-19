@@ -267,12 +267,12 @@ tr:first-child, tr:nth-child(2n+3) {
 /* Embed Ubuntu font if not present on system */
 @font-face {
     font-family: "Ubuntu-Embed";
-    src: url("/assets/fonts/Ubuntu-R.ttf");
+    src: local('Ubuntu'), url("/assets/fonts/Ubuntu-R.ttf");
 }
 
 @font-face {
     font-family: "Ubuntu-Embed";
-    src: url("/assets/fonts/Ubuntu-B.ttf");
+    src: local('Ubuntu Bold'), url("/assets/fonts/Ubuntu-B.ttf");
     font-weight: bold;
     font-style: normal;
 }
