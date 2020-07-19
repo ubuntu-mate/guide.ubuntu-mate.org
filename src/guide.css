@@ -20,14 +20,14 @@ body {
 
 #guide-content {
     padding: 15px;
-    width: calc(100vw - 300px);
+    width: calc(100vw - 300px - 30px);
     max-width: 940px;
     margin: auto;
 }
 
 #guide-viewer {
-    display: flex;
-    transition: opacity 0.5s, visibility 0.5s;
+    margin-left: 300px;
+    transition: opacity 1s, visibility 1s;
 }
 
 /* Hidden at first as it will fade in when ready */
@@ -45,8 +45,10 @@ body {
   Sidebar
 ************************************/
 #guide-sidebar {
-    position: sticky;
+    position: fixed;
     top: 66px;
+    left: 0;
+    bottom: 0;
     align-self: start;
     width: 300px;
 }
@@ -55,7 +57,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: calc(100vh - 66px);
+    height: calc(100% - 30px);
     overflow-y: scroll;
 }
 
@@ -366,12 +368,13 @@ tr:first-child, tr:nth-child(2n+3) {
 }
 
 @media screen and (max-width: 768px) {
-    .mobile-only {
-        display: block;
+    #guide-viewer {
+        margin: 0;
     }
 
     #guide-content {
         width: calc(100% - 30px);
+        max-width: none;
     }
 
     /* Hide header items */
@@ -380,10 +383,6 @@ tr:first-child, tr:nth-child(2n+3) {
     }
 
     /* Collapse sidebar into toggle button */
-    #guide-viewer {
-        display: block;
-    }
-
     #guide-sidebar {
         background: white;
         position: fixed;
@@ -446,6 +445,10 @@ tr:first-child, tr:nth-child(2n+3) {
 
     #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn path {
         fill: black;
+    }
+
+    .mobile-only {
+        display: block;
     }
 }
 
