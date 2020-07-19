@@ -176,6 +176,12 @@ body {
     outline-color: #abc087;
 }
 
+.site-nav.disabled {
+    cursor: not-allowed;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
 .site-nav svg {
     height: 16px;
     width: 16px;
@@ -401,6 +407,10 @@ tr:first-child, tr:nth-child(2n+3) {
     #guide-content {
         width: calc(100% - 30px);
         max-width: none;
+    }
+
+    #sidebar-contents {
+        height: 100%;
     }
 
     /* Hide header items */

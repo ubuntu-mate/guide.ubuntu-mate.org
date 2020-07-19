@@ -4,7 +4,9 @@ const headings = document.querySelectorAll("h1");
 const sidebar_toggle = document.getElementById("mobile-nav-toggle");
 const sidebar_btn = document.getElementById("sidebar-invisible");
 const btn_prev = document.getElementById("prev-section");
+const btn_prev_2 = document.getElementById("prev-section-mobile");
 const btn_next = document.getElementById("next-section");
+const btn_next_2 = document.getElementById("next-section-mobile");
 
 var ready = false;
 var scroll_timeout = null;
@@ -111,6 +113,8 @@ window.addEventListener("DOMContentLoaded", function() {
         ready = true;
         btn_prev.disabled = false;
         btn_next.disabled = false;
+        btn_prev_2.classList.add("disabled");
+        btn_next_2.classList.add("disabled");
         refreshSidebar();
 
     } catch(e) {
@@ -164,10 +168,16 @@ function _updateNextPrevButtons() {
     var active = document.querySelector(".active");
     btn_prev.disabled = false;
     btn_next.disabled = false;
+    btn_prev_2.classList.remove("disabled");
+    btn_next_2.classList.remove("disabled");
 
-    if (active.previousSibling.previousSibling == null)
+    if (active.previousSibling.previousSibling == null) {
         btn_prev.disabled = true;
+        btn_prev_2.classList.add("disabled");
+    }
 
-    if (active.nextSibling == null)
+    if (active.nextSibling == null) {
         btn_next.disabled = true;
+        btn_next_2.classList.add("disabled");
+    }
 }
