@@ -64,6 +64,12 @@ body {
     overflow-y: scroll;
 }
 
+#sidebar-contents::after {
+    content: " ";
+    display: block;
+    height: 30px;
+}
+
 .nav-item {
     cursor: pointer;
     display: block;
