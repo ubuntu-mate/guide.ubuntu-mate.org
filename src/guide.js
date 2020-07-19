@@ -20,8 +20,18 @@ function refresh_sidebar() {
         }
     }
 
-    document.querySelector(".active").classList.remove("active");
+    var active = document.querySelector(".active");
+
+    if (active == null || active == undefined) {
+        active = sidebar.childNodes[1];
+        active.classList.add("active");
+    }
+
+    active.classList.remove("active");
     document.getElementById(`nav-${id}`).classList.add("active");
+
+    // Keep current topic centered in the sidebar
+    sidebar.scrollTop = active.offsetTop - window.innerHeight / 2;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
