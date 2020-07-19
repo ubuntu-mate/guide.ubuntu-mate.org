@@ -6,7 +6,7 @@ const sidebar_btn = document.getElementById("sidebar-invisible");
 var ready = false;
 
 // ScrollSpy - track current position in sidebar
-function refresh_sidebar() {
+function refresh_sidebar(event) {
     const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
 
     if (ready === false)
@@ -32,8 +32,10 @@ function refresh_sidebar() {
     active.classList.remove("active");
     document.getElementById(`nav-${id}`).classList.add("active");
 
-    // Keep current topic centered in the sidebar
-    sidebar.scrollTop = active.offsetTop - window.innerHeight / 2;
+    // Keep current topic centered in the sidebar, but only if scrolling
+    if (event != null && event != undefined) {
+        sidebar.scrollTop = active.offsetTop - window.innerHeight / 2;
+    }
 }
 
 window.addEventListener("DOMContentLoaded", function() {
