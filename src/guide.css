@@ -20,7 +20,7 @@ body {
 
 #guide-content {
     padding: 15px;
-    width: calc(100vw - 300px - 30px);
+    width: calc(100vw - 300px - 30px - 30px);
     max-width: 940px;
     margin: auto;
 }
@@ -52,7 +52,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: calc(100% - 30px);
+    height: calc(100% - 50px);
     overflow-y: scroll;
 }
 
