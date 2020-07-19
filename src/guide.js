@@ -4,9 +4,15 @@ const headings = document.querySelectorAll("h1");
 const sidebar_toggle = document.getElementById("mobile-nav-toggle");
 const sidebar_btn = document.getElementById("sidebar-invisible");
 var ready = false;
+var scroll_timeout = null;
 
 // ScrollSpy - track current position in sidebar
-function refresh_sidebar(event) {
+function refreshSidebar(event) {
+    clearTimeout(scroll_timeout);
+    scroll_timeout = setTimeout(_refreshSidebar, 100);
+}
+
+function _refreshSidebar() {
     const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
 
     if (ready === false)
@@ -23,6 +29,7 @@ function refresh_sidebar(event) {
     }
 
     var active = document.querySelector(".active");
+    var target = document.getElementById(`nav-${id}`);
 
     if (active == null || active == undefined) {
         active = sidebar.childNodes[1];
@@ -30,12 +37,14 @@ function refresh_sidebar(event) {
     }
 
     active.classList.remove("active");
-    document.getElementById(`nav-${id}`).classList.add("active");
+    target.classList.add("active");
+    target.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 
-    // Keep current topic centered in the sidebar, but only if scrolling
-    if (event != null && event != undefined) {
-        sidebar.scrollTop = active.offsetTop - window.innerHeight / 2;
-    }
+    // TODO: Keep the hash in the address bar up-to-date
+    //window.location.hash = "#" + id;
 }
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -89,10 +98,12 @@ window.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById("guide-viewer").classList.remove("loading");
 
-        window.onscroll = refresh_sidebar;
-        ready = true;
-        refresh_sidebar();
+        // Set up triggers
+        window.onscroll = refreshSidebar;
 
+        // Ready!
+        ready = true;
+        refreshSidebar();
         document.getElementById("prev-section").disabled = false;
         document.getElementById("next-section").disabled = false;
 
