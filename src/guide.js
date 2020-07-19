@@ -3,6 +3,9 @@ const sidebar = document.getElementById("sidebar-contents");
 const headings = document.querySelectorAll("h1");
 const sidebar_toggle = document.getElementById("mobile-nav-toggle");
 const sidebar_btn = document.getElementById("sidebar-invisible");
+const btn_prev = document.getElementById("prev-section");
+const btn_next = document.getElementById("next-section");
+
 var ready = false;
 var scroll_timeout = null;
 
@@ -45,6 +48,9 @@ function _refreshSidebar() {
 
     // TODO: Keep the hash in the address bar up-to-date
     //window.location.hash = "#" + id;
+
+    // Disable next/prev buttons accordingly
+    _updateNextPrevButtons();
 }
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -103,9 +109,9 @@ window.addEventListener("DOMContentLoaded", function() {
 
         // Ready!
         ready = true;
+        btn_prev.disabled = false;
+        btn_next.disabled = false;
         refreshSidebar();
-        document.getElementById("prev-section").disabled = false;
-        document.getElementById("next-section").disabled = false;
 
     } catch(e) {
         console.error(e);
@@ -152,4 +158,16 @@ function nextSection() {
         return null;
 
     target.click();
+}
+
+function _updateNextPrevButtons() {
+    var active = document.querySelector(".active");
+    btn_prev.disabled = false;
+    btn_next.disabled = false;
+
+    if (active.previousSibling.previousSibling == null)
+        btn_prev.disabled = true;
+
+    if (active.nextSibling == null)
+        btn_next.disabled = true;
 }
