@@ -64,7 +64,11 @@ window.addEventListener("DOMContentLoaded", function() {
         // If returning to the page and a hash in the URL, jump!
         if (window.location.href.search("#") != -1) {
             let href = window.location.href.split("#")[1];
-            document.getElementById("nav-" + href).click();
+            let btn = document.getElementById("nav-" + href);
+
+            if (btn != null || btn != undefined) {
+                btn.click();
+            }
         }
 
         // Some headings are linked within articles. Make sure those links don't have a class.
