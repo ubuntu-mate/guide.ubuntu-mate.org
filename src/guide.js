@@ -25,48 +25,53 @@ function refresh_sidebar() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    // Populate sidebar with topics
-    var buffer = "";
-    for (h = 1; h < headings.length; h++) {
-        var heading = headings[h];
+    try {
+        // Populate sidebar with topics
+        var buffer = "";
+        for (h = 1; h < headings.length; h++) {
+            var heading = headings[h];
 
-        if (heading.tagName.toLowerCase() == "h1") {
-            var is_new_chapter = heading.innerText.search('•') == 0 ? true : false;
-            var text = heading.innerText;
+            if (heading.tagName.toLowerCase() == "h1") {
+                var is_new_chapter = heading.innerText.search('•') == 0 ? true : false;
+                var text = heading.innerText;
 
-            if (is_new_chapter === true) {
-                text = text.split('•').join("").toLowerCase().replace("mate", "MATE");
-                buffer += "<div class='nav-separator'></div>";
-            }
+                if (is_new_chapter === true) {
+                    text = text.split('•').join("").toLowerCase().replace("mate", "MATE");
+                    buffer += "<div class='nav-separator'></div>";
+                }
 
-            buffer += `<a id="nav-${heading.id}" class="nav-item ${is_new_chapter ? 'nav-chapter' : ''} ${h == 1 ? 'active' : ''}" href="#${heading.id}">${text}</a>`;
+                buffer += `<a id="nav-${heading.id}" class="nav-item ${is_new_chapter ? 'nav-chapter' : ''} ${h == 1 ? 'active' : ''}" href="#${heading.id}">${text}</a>`;
 
-            if (is_new_chapter === true) {
-                heading.innerText = heading.innerText.split('•').join("").toLowerCase().replace("mate", "MATE");
+                if (is_new_chapter === true) {
+                    heading.innerText = heading.innerText.split('•').join("").toLowerCase().replace("mate", "MATE");
+                }
             }
         }
-    }
-    sidebar.innerHTML = buffer;
+        sidebar.innerHTML = buffer;
 
-    window.onscroll = refresh_sidebar;
-    ready = true;
-    refresh_sidebar();
-
-    // If returning to the page and a hash is in the URL, jump!
-    if (window.location.href.search("#") != -1) {
-        let href = window.location.href.split("#")[1];
-        document.getElementById("nav-" + href).click();
-    }
-
-    // Some headings are linked in articles. Make sure they don't have the
-    // class in the articles.
-    let chapter_links = document.querySelectorAll(".nav-chapter");
-    for (c = 0; c < chapter_links.length; c++) {
-        let link = chapter_links[c];
-        if (link.parentElement.tagName.toLowerCase() == "p") {
-            link.classList.remove("nav-chapter");
+        // If returning to the page and a hash in the URL, jump!
+        if (window.location.href.search("#") != -1) {
+            let href = window.location.href.split("#")[1];
+            document.getElementById("nav-" + href).click();
         }
-    }
 
-    document.getElementById("guide-viewer").classList.remove("loading");
+        // Some headings are linked within articles. Make sure those links don't have a class.
+        let chapter_links = document.querySelectorAll(".nav-chapter");
+        for (c = 0; c < chapter_links.length; c++) {
+            let link = chapter_links[c];
+            if (link.parentElement.tagName.toLowerCase() == "p") {
+                link.classList.remove("nav-chapter");
+            }
+        }
+
+        document.getElementById("guide-viewer").classList.remove("loading");
+
+        window.onscroll = refresh_sidebar;
+        ready = true;
+        refresh_sidebar();
+    } catch(e) {
+        console.error(e);
+        document.getElementById("guide-viewer").classList.remove("loading");
+        window.alert("There was an error loading the guide. Your mileage may vary.\n\nDetails:\n " + e);
+    }
 });
