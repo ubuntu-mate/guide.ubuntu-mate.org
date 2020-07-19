@@ -1,10 +1,6 @@
 /************************************
   Base
 ************************************/
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: auto;
     padding: 0;
