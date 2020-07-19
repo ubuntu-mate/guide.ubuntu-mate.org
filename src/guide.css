@@ -31,7 +31,6 @@ body {
 
 #guide-viewer {
     display: flex;
-    flex-direction: columm;
     transition: opacity 0.5s, visibility 0.5s;
 }
 
