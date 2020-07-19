@@ -379,7 +379,7 @@ tr:first-child, tr:nth-child(2n+3) {
     }
 
     #sidebar-invisible {
-        background: rgba(255,255,255,0.75);
+        background: rgba(255,255,255,0.9);
         cursor: pointer;
         display: flex;
         position: fixed;
@@ -434,7 +434,7 @@ tr:first-child, tr:nth-child(2n+3) {
 
 @media screen and (max-width: 768px) and (prefers-color-scheme: dark) {
     #sidebar-invisible {
-        background: rgba(0,0,0,0.75);
+        background: rgba(0,0,0,0.9);
     }
 
     #guide-sidebar,
