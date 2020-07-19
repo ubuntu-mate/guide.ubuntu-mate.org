@@ -1,6 +1,8 @@
 
 const sidebar = document.getElementById("sidebar-contents");
 const headings = document.querySelectorAll("h1");
+const sidebar_toggle = document.getElementById("mobile-nav-toggle");
+const sidebar_btn = document.getElementById("sidebar-invisible");
 var ready = false;
 
 // ScrollSpy - track current position in sidebar
@@ -34,7 +36,7 @@ function refresh_sidebar() {
     sidebar.scrollTop = active.offsetTop - window.innerHeight / 2;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", function() {
     try {
         // Populate sidebar with topics
         var buffer = "";
@@ -74,14 +76,25 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        // On mobile, clicking a topic closes the menu.
+        sidebar.addEventListener("click", function() {
+            sidebar_toggle.checked = false;
+        });
+
         document.getElementById("guide-viewer").classList.remove("loading");
 
         window.onscroll = refresh_sidebar;
         ready = true;
         refresh_sidebar();
+
     } catch(e) {
         console.error(e);
         document.getElementById("guide-viewer").classList.remove("loading");
         window.alert("There was an error loading the guide. Your mileage may vary.\n\nDetails:\n " + e);
     }
+});
+
+// Set up mobile menu
+sidebar_btn.addEventListener("click", function() {
+    sidebar_toggle.checked = false;
 });

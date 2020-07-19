@@ -1,3 +1,6 @@
+
+<input id="mobile-nav-toggle" type="checkbox" style="appearance:none; display:none"/>
+
 <header id="site-header">
     <a id="back-to-top" href="/">
         <svg id="site-logo" width="50" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -9,6 +12,11 @@
     <a class="site-nav" href="https://ubuntu-mate.org">Main Website</a>
     <a class="site-nav" href="https://ubuntu-mate.community">Community</a>
     <a class="site-nav" href="https://ubuntu-mate.org/shop/books/">Buy Book</a>
+    <label id="mobile-nav-btn" for="mobile-nav-toggle" class="mobile-only">
+        <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="24" width="24" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 24 24">
+            <path id="path2" style="stroke-width:.043822" d="m22.094 3.5575h-20.188c-.4983 0-.906.3999-.906.8886v1.7774c0 .4888.4077.8887.9060.8887h20.188c.498 0 .906-0.4.906-.8887v-1.7774c0-.4887-.408-.8886-.906-.8886zm0 13.33h-20.188c-.4983 0-.906 0.4-.906.889v1.7773c0 .48879.40772.88867.90602.88867h20.188c.498 0 .906-0.4.906-.889v-1.7773c0-.48879-.40772-.88866-.90602-.88866zm0-6.6653h-20.188c-.4983 0-.906.399-.906.888v1.7773c0 .48878.40772.88866.90602.88866h20.188c.498 0 .906-0.4.906-.888v-1.7773c0-.48878-.40772-.88866-.90602-.88866z"></path>
+        </svg>
+    </label>
 </header>
 
 <noscript>
@@ -31,6 +39,12 @@
         <ul id="sidebar-contents">
             <div class="sidebar-info">Loading...</div>
         </ul>
+        <div id="sidebar-invisible" class="mobile-only">
+            <!-- FontAwesome 5: chevron-left.svg -->
+            <svg id="sidebar-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"/>
+            </svg>
+        </div>
     </nav>
 
     <div id="guide-content">

@@ -19,7 +19,8 @@ body {
 
 #guide-content {
     padding: 15px;
-    max-width: calc(100vw - 300px);
+    width: calc(100vw - 300px);
+    max-width: 940px;
     margin: auto;
 }
 
@@ -33,6 +34,11 @@ body {
 #guide-viewer.loading {
     cursor: wait;
     opacity: 0;
+}
+
+/* Only visible on mobile */
+.mobile-only {
+    display: none;
 }
 
 /************************************
@@ -329,5 +335,115 @@ tr:first-child, tr:nth-child(2n+3) {
 
     tr:nth-child(even) {
         background-color: #2f2f2f;
+    }
+}
+
+/************************************
+  Mobile Responsive
+************************************/
+@media screen and (max-width: 940px) {
+    p > img,
+    p > embed {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    #guide-content {
+        width: calc(100% - 30px);
+    }
+
+    /* Hide header items */
+    .site-nav {
+        display: none;
+    }
+
+    /* Collapse sidebar into toggle button */
+    #guide-viewer {
+        display: block;
+    }
+
+    #guide-sidebar {
+        background: white;
+        position: fixed;
+        bottom: 0;
+        left: 10vw;
+        right: 0;
+        width: 90vw;
+        box-shadow: -5px -0 10px gray;
+        z-index: 5;
+    }
+
+    #sidebar-invisible {
+        background: rgba(255,255,255,0.75);
+        cursor: pointer;
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 66px;
+        bottom: 0;
+        width: 10vw;
+    }
+
+    #sidebar-close {
+        display: block;
+        transform: rotate(180deg);
+        margin: auto;
+        height: 1em;
+        width: 1em;
+    }
+
+    #sidebar-close path {
+        fill: black;
+    }
+
+    #guide-viewer #guide-sidebar {
+        display: none;
+    }
+
+    #mobile-nav-btn {
+        display: flex;
+        height: 50px;
+        width: 50px;
+    }
+
+    #mobile-nav-btn svg {
+        margin: auto;
+    }
+
+    #mobile-nav-btn path {
+        fill: white;
+    }
+
+    #mobile-nav-toggle:checked ~ #guide-viewer #guide-sidebar {
+        display: block;
+    }
+
+    #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn {
+        background: white;
+    }
+
+    #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn path {
+        fill: black;
+    }
+}
+
+@media screen and (max-width: 768px) and (prefers-color-scheme: dark) {
+    #sidebar-invisible {
+        background: rgba(0,0,0,0.75);
+    }
+
+    #guide-sidebar,
+    #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn {
+        background: black;
+    }
+
+    #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn path,
+    #sidebar-close path  {
+        fill: white;
     }
 }
