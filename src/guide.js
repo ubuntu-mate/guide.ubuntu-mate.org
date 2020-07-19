@@ -93,6 +93,9 @@ window.addEventListener("DOMContentLoaded", function() {
         ready = true;
         refresh_sidebar();
 
+        document.getElementById("prev-section").disabled = false;
+        document.getElementById("next-section").disabled = false;
+
     } catch(e) {
         console.error(e);
         document.getElementById("guide-viewer").classList.remove("loading");
@@ -104,3 +107,38 @@ window.addEventListener("DOMContentLoaded", function() {
 sidebar_btn.addEventListener("click", function() {
     sidebar_toggle.checked = false;
 });
+
+// Buttons for jumping forward/backwards from sections
+function prevSection() {
+    var active = document.querySelector(".active");
+    var target = active.previousSibling;
+
+    if (target == null)
+        return null;
+
+    if (target.className == "nav-separator") {
+        target = target.previousSibling;
+    }
+
+    if (target == null)
+        return null;
+
+    target.click();
+}
+
+function nextSection() {
+    var active = document.querySelector(".active");
+    var target = active.nextSibling;
+
+    if (target == null)
+        return null;
+
+    if (target.className == "nav-separator") {
+        target = target.nextSibling;
+    }
+
+    if (target == null)
+        return null;
+
+    target.click();
+}

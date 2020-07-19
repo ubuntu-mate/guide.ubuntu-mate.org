@@ -26,6 +26,14 @@
         </svg>
         <span>Buy Books</span>
     </a>
+    <a class="site-nav mobile-only" href="#" onclick="prevSection()">
+        <!-- FontAwesome 5: chevron-up.svg -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"/></svg>
+    </a>
+    <a class="site-nav mobile-only" href="#" onclick="nextSection()">
+        <!-- FontAwesome 5: chevron-down.svg -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+    </a>
     <label id="mobile-nav-btn" for="mobile-nav-toggle" class="mobile-only">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24">
             <path id="path2" style="stroke-width:.043822" d="m22.094 3.5575h-20.188c-.4983 0-.906.3999-.906.8886v1.7774c0 .4888.4077.8887.9060.8887h20.188c.498 0 .906-0.4.906-.8887v-1.7774c0-.4887-.408-.8886-.906-.8886zm0 13.33h-20.188c-.4983 0-.906 0.4-.906.889v1.7773c0 .48879.40772.88867.90602.88867h20.188c.498 0 .906-0.4.906-.889v-1.7773c0-.48879-.40772-.88866-.90602-.88866zm0-6.6653h-20.188c-.4983 0-.906.399-.906.888v1.7773c0 .48878.40772.88866.90602.88866h20.188c.498 0 .906-0.4.906-.888v-1.7773c0-.48878-.40772-.88866-.90602-.88866z"></path>
@@ -50,6 +58,18 @@
                 In order to use the sidebar navigation, please enable JavaScript.
             </div>
         </noscript>
+        <div id="sidebar-buttons">
+            <button id="prev-section" onclick="prevSection()" disabled>
+                <!-- FontAwesome 5: chevron-up.svg -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"/></svg>
+                <span>Previous</span>
+            </button>
+            <button id="next-section" onclick="nextSection()" disabled>
+                <!-- FontAwesome 5: chevron-down.svg -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                <span>Next</span>
+            </button>
+        </div>
         <ul id="sidebar-contents">
             <div class="sidebar-info">Loading...</div>
         </ul>

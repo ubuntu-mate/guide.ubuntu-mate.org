@@ -36,11 +36,6 @@ body {
     opacity: 0;
 }
 
-/* Only visible on mobile */
-.mobile-only {
-    display: none;
-}
-
 /************************************
   Sidebar
 ************************************/
@@ -113,6 +108,28 @@ body {
 
 #nav-page-faq {
     text-transform: uppercase;
+}
+
+#sidebar-buttons {
+    position: sticky;
+    top: 0;
+    display: flex;
+    margin: 10px;
+}
+
+#sidebar-buttons button {
+    flex: 1;
+    margin: 0 4px;
+}
+
+#sidebar-buttons svg {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+
+#sidebar-buttons svg path {
+    fill: #87A556;
 }
 
 /************************************
@@ -360,6 +377,11 @@ tr:first-child, tr:nth-child(2n+3) {
 /************************************
   Mobile Responsive
 ************************************/
+/* Only visible on mobile */
+.mobile-only {
+    display: none;
+}
+
 @media screen and (max-width: 940px) {
     p > img,
     p > embed {
@@ -445,6 +467,16 @@ tr:first-child, tr:nth-child(2n+3) {
 
     #mobile-nav-toggle:checked ~ #site-header #mobile-nav-btn path {
         fill: black;
+    }
+
+    #sidebar-buttons {
+        display: none;
+    }
+
+    .site-nav svg {
+        height: 24px;
+        width: 24px;
+        vertical-align: top;
     }
 
     .mobile-only {
