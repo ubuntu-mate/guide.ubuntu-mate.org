@@ -11,6 +11,11 @@ body {
     margin: 0;
     line-height: 22px;
     overflow-x: hidden;
+    background-image: url(/assets/watermark.svg);
+    background-size: 300px;
+    background-position: bottom -50px right -50px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 * {
@@ -126,7 +131,8 @@ body {
 }
 
 #site-logo {
-    margin: 0 15px;
+    height: 50px;
+    width: 50px;
 }
 
 .site-nav {
