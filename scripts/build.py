@@ -37,7 +37,7 @@ if os.path.exists(output_path):
 os.mkdir(output_path)
 os.chdir(output_path)
 
-print("Generating...")
+print("Patching docbook...")
 
 # Make a few patches before performing the conversion.
 shutil.copy(docbook_path, "original.docbook")
@@ -68,10 +68,16 @@ with open("original.docbook", "r") as f:
 new_docbook = []
 skip_lines = 0
 found_table = False
+skip_section = False
 
 for line in docbook:
     if skip_lines > 0:
         skip_lines = skip_lines - 1
+        continue
+
+    if skip_section:
+        if line.strip().find('</sect1>') != -1:
+            skip_section = True
         continue
 
     if line.strip().find('<informaltable frame="all">') != -1:
@@ -83,12 +89,18 @@ for line in docbook:
         skip_lines = 5
         found_table = False
 
+    # Omit FAQs as these are documented on the website
+    if line.strip().find('<sect1 id="page.faq">') != -1:
+        skip_section = True
+        continue
+
     new_docbook.append(line)
 
 with open("processed.docbook", "w") as f:
     f.writelines(new_docbook)
 
 # Perform the conversion!
+print("Converting to HTML...")
 result = os.system("pandoc -f docbook -t html -s processed.docbook -o index.html")
 if result != 0:
     print("Got non-zero exit code: {0}".format(int(result / 256)))
@@ -105,7 +117,7 @@ shutil.copytree(os.path.join("../src/assets/"), "assets/")
 
 # Clean up
 # Load pieces and append them to index.html
-print("Appending HTML...")
+print("Patching HTML...")
 
 with open("../src/head.html", "r") as f:
     head = f.readlines()
@@ -172,8 +184,5 @@ for line in index:
 
 with open("index.html", "w") as f:
     f.writelines(new_index)
-
-# Optimisation
-# print("Optimising...")
 
 print("Generation complete.")
