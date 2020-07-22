@@ -41,6 +41,10 @@ function _refreshSidebar() {
         active.classList.add("active");
     }
 
+    if (target == null || target == undefined) {
+        target = sidebar.querySelector(".nav-item");
+    }
+
     active.classList.remove("active");
     target.classList.add("active");
     target.scrollIntoView({
