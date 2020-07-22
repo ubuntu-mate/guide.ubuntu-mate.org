@@ -27,6 +27,7 @@ body {
 
 #guide-viewer {
     margin-left: 300px;
+    margin-top: 50px;
     transition: opacity 1s, visibility 1s;
 }
 
@@ -137,8 +138,10 @@ body {
 ************************************/
 #site-header {
     background: #87a556;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     height: 50px;
     padding: 8px 12px;
     z-index: 10;
