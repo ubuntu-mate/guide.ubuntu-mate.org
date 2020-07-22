@@ -244,6 +244,7 @@ pre {
     padding: 15px;
     margin: 15px 0;
     white-space: pre-wrap;
+    line-break: anywhere;
 }
 
 pre,
@@ -403,6 +404,10 @@ tr:first-child, tr:nth-child(2n+3) {
 @media screen and (max-width: 768px) {
     #guide-viewer {
         margin: 0;
+    }
+
+    a {
+        line-break: anywhere;
     }
 
     #guide-content {
