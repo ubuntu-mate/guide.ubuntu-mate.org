@@ -46,6 +46,8 @@
         #guide-viewer {
             opacity: 1 !important;
             visibility: visible !important;
+        #loading-text {
+            display: none !important;
         }
     </style>
 </noscript>
@@ -71,7 +73,12 @@
             </button>
         </div>
         <ul id="sidebar-contents">
-            <div class="sidebar-info">Loading...</div>
+            <div class="sidebar-info" id="loading-text">
+                Loading...
+                <br><br>
+                If you're using an old browser and nothing appears,
+                please disable JavaScript and refresh this page.
+            </div>
         </ul>
         <div id="sidebar-invisible" class="mobile-only">
             <!-- FontAwesome 5: chevron-left.svg -->
