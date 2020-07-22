@@ -28,7 +28,7 @@ function _refreshSidebar() {
     for (h = 1; h < headings.length; h++ ) {
         let header = headings[h];
 
-        if (header.offsetTop <= scrollPos + 250) {
+        if (header.offsetTop <= scrollPos + 100) {
             id = header.id;
         }
     }
