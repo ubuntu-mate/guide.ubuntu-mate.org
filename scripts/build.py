@@ -77,7 +77,7 @@ for line in docbook:
 
     if skip_section:
         if line.strip().find('</sect1>') != -1:
-            skip_section = True
+            skip_section = False
         continue
 
     if line.strip().find('<informaltable frame="all">') != -1:
