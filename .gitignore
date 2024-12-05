@@ -1,2 +1,5 @@
 # Compiled files
 build/
+
+# CI: Repository clones
+/ubuntu-mate-guide/
