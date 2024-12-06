@@ -1,8 +1,16 @@
 # guide.ubuntu-mate.org
 
-![CI](https://github.com/ubuntu-mate/guide.ubuntu-mate.org/workflows/CI/badge.svg)
+An online publication of the Ubuntu MATE Guide.
 
-An online publication of the [Ubuntu MATE Guide].
+
+> [!IMPORTANT]
+> This repository was merged with the [ubuntu-mate-guide] repository.
+>
+> The original code used from 2020 to 2024 remains archived here, designed for
+> use with the 20.04 version of pandoc.
+>
+> For the latest guide.ubuntu-mate.org code, visit the [ubuntu-mate-guide] repository.
+>
 
 
 ## Building
@@ -25,8 +33,7 @@ The result will be output to the `build` folder ready for viewing or deployment.
 
 The contents of this repository is licensed under the GNU General Public License v3.
 
-Ubuntu MATE Guide is licensed under [CC-BY-SA-4.0](https://github.com/ubuntu-mate/ubuntu-mate-guide/blob/master/LICENSE).
+See [LICENSE](https://github.com/ubuntu-mate/ubuntu-mate-guide/blob/master/LICENSE) from the [ubuntu-mate-guide] repository for the guide's content license.
 
 
-[Ubuntu MATE Guide]: https://github.com/ubuntu-mate/ubuntu-mate-guide
 [ubuntu-mate-guide]: https://github.com/ubuntu-mate/ubuntu-mate-guide
